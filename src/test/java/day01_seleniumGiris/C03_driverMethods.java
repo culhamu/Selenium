@@ -13,10 +13,19 @@ public class C03_driverMethods {
         driver.manage().window().maximize();
         //amazon sayfasına gidin
         //gittiğiniz sayfada ki title ve url yazdırın
-        //amazon sayfasına gittiğinizi test edein
+        //amazon sayfasına gittiğimizi test edelim
         driver.navigate().to("https://www.amazon.com");
         System.out.println("Amazon sayfasının Url'si : "+driver.getCurrentUrl());
         System.out.println("Amazon sayfasının Title'si : "+driver.getTitle());
+
+        //amazon ana sayfasına gidip gidemediğimizi test edelim
+        String expectedContent="amazon";
+        String actualUrl=driver.getCurrentUrl();
+        if (actualUrl.contains(expectedContent)){
+            System.out.println("Test PASSED");
+        }else {
+            System.out.println("Test FAILED");
+        }
         driver.close();
     }
 }
