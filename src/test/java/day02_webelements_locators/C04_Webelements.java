@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class C04_Webelements {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
@@ -18,6 +18,7 @@ public class C04_Webelements {
         WebElement amazonSearchBox=driver.findElement(By.id("twotabsearchtextbox"));
         amazonSearchBox.sendKeys("nutella");
         amazonSearchBox.submit();
+        Thread.sleep(2000);
         driver.close();
     }
 }
