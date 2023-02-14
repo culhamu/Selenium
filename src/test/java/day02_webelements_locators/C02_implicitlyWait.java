@@ -18,5 +18,7 @@ public class C02_implicitlyWait {
         bu yüzden implicitlyWait özelliğini kullanarak oluşabilecek hataların önüne geçmek için
         belirli bir süre bekletmemiz gerekir.
          */
+
+
     }
 }
