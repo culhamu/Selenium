@@ -15,7 +15,7 @@ public class C04_CookiesGecme {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://www.google.com");
         // cookies'i kabul ederek cookies ekranini kapatin
-        driver.findElement(By.xpath("//div[text()='Accept all']")).click();
+        driver.findElement(By.xpath("//div[text()='Kabul Et']")).click();
         // arama cubuguna Java yazip aratin
         WebElement aramaCubugu= driver.findElement(By.xpath("//input[@name='q']"));
         aramaCubugu.sendKeys("Java" + Keys.ENTER);
