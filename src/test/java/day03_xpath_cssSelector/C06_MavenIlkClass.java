@@ -26,13 +26,13 @@ public class C06_MavenIlkClass {
         // 3- “Samsung headphones” ile arama yapalim
         searcBox.sendKeys("Samsung headphones"+ Keys.ENTER);
         // 4- Bulunan sonuc sayisini yazdiralim
-        System.out.println(driver.findElement(By.xpath("//h1[@class=‘a-size-base s-desktop-toolbar a-text-normal’]")).getText());
+        System.out.println(driver.findElement(By.xpath("//span[@class='a-size-medium a-color-base a-text-normal']")).getText());
         // 5- Ilk urunu tiklayalim
-        driver.findElement(By.xpath("(//span[@class=‘a-size-medium a-color-base a-text-normal’])[1]")).click();
+        driver.findElement(By.xpath("(//span[@class='a-size-medium a-color-base a-text-normal'])[1]")).click();
         // 6- Sayfadaki tum basliklari yazdiralim
         driver.navigate().back();
 
-        List<WebElement> basliklar=driver.findElements(By.xpath("//a[@class=‘a-link-normal s-navigation-item’]"));
+        List<WebElement> basliklar=driver.findElements(By.xpath("//span[@class='a-size-base a-color-base']"));
         int elementNo=1;
         for (WebElement each:basliklar) {
 
