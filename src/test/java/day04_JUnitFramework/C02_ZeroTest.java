@@ -27,12 +27,12 @@ public class C02_ZeroTest {
        // 4. Password alanine “password” yazdirin
         driver.findElement(By.id("user_password")).sendKeys("password");
        // 5. Sign in buttonuna tiklayin
-        driver.findElement(By.xpath("//input[@name=‘submit’]")).click();
+        driver.findElement(By.xpath("//input[@name='submit']")).click();
         //Sayfa açılamazsa back tuşuna basın
         driver.navigate().back();
        // 6. Online Banking üzerinden Pay Bills sayfasina gidin
-        driver.findElement(By.xpath("//strong[text()=‘Online Banking’]")).click();
-        driver.findElement(By.xpath("//span[text()=‘Pay Bills’]")).click();
+        driver.findElement(By.xpath("//strong[text()='Online Banking']")).click();
+        driver.findElement(By.xpath("//span[text()='Pay Bills']")).click();
        // 7. amount kismina yatirmak istediginiz herhangi bir miktari yazin
         driver.findElement(By.id("sp_amount")).sendKeys("200");
        // 8. tarih kismina “2020-09-10” yazdirin
