@@ -32,6 +32,7 @@ public class Q1 {
         driver.get("https://www.google.com/");
         // On the same class, Navigate to amazon home page https://www.amazon.com/ Navigate back to google
         driver.navigate().to("https://www.amazon.com/");
+        driver.navigate().back();
         // Navigate forward to amazon
         driver.navigate().forward();
         // Refresh the page
