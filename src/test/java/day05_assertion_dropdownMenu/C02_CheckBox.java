@@ -33,8 +33,8 @@ public class C02_CheckBox {
         // c. Checkbox1 seçili değilse onay kutusunu tıklayın
         // d. Checkbox2 seçili değilse onay kutusunu tıklayın
         driver.get("https://the-internet.herokuapp.com/checkboxes");
-        WebElement checkBox1= driver.findElement(By.xpath("(//input[@id='checkboxes'])[1]"));
-        WebElement checkBox2= driver.findElement(By.xpath("(//input[@id='checkboxes'])[2]"));
+        WebElement checkBox1= driver.findElement(By.xpath("(//input[@type='checkboxes'])[1]"));
+        WebElement checkBox2= driver.findElement(By.xpath("(//input[@typr='checkboxes'])[2]"));
         if (!checkBox1.isSelected()){
             checkBox1.click();
         }
