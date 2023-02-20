@@ -31,24 +31,21 @@ public class C03_RadioButton {
         // c. Create an account buton’una basin
         driver.findElement(By.xpath("//a[text()='Yeni hesap oluştur']")).click();
         // d. Radio button elementlerini locate edin ve size uygun olani secin
-        driver.findElement(By.xpath("//input[@id='u_8_b_eI']")).sendKeys("Ali");
-        driver.findElement(By.xpath("//input[@id='u_8_d_YC']")).sendKeys("Veli");
-        driver.findElement(By.xpath("//input[@id='u_8_g_V+']")).sendKeys("05446548978");
-        driver.findElement(By.xpath("//input[@id='password_step_input']")).sendKeys("123456789a.wwrE");
-        driver.findElement(By.xpath("//select[@id='day']")).sendKeys("15");
-        driver.findElement(By.xpath("//select[@id='month']")).sendKeys("Haz");
-        driver.findElement(By.xpath("//select[@id='year']")).sendKeys("2000");
-       WebElement radioButton= driver.findElement(By.xpath("//input[@id='u_8_5_Qb']"));
-       radioButton.click();
+       WebElement maleButton= driver.findElement(By.xpath("(//input[@type='radio'])[2]"));
+       WebElement femaleButton= driver.findElement(By.xpath("(//input[@type='radio'])[1]"));
+       WebElement customButton= driver.findElement(By.xpath("(//input[@type='radio'])[3]"));
+       maleButton.click();
 
         //seçtiğiniz radio butonun seçili olup olmadığını test edin
 
-        Assert.assertTrue(radioButton.isSelected());
-        driver.findElement(By.xpath("//button[@id='u_8_s_HB']")).click();
+        Assert.assertTrue(maleButton.isSelected());
+        Assert.assertFalse(femaleButton.isSelected());
+        Assert.assertFalse(customButton.isSelected());
 
     }
     @After
     public void teardown(){
 
+        driver.close();
     }
 }
