@@ -47,7 +47,7 @@ public class C04_DropdownMenu {
         Select select=new Select(ddm);
         select.selectByVisibleText("Books");
         // 2. Arama kutusuna Java yazin ve aratin
-        WebElement searchBox=driver.findElement(By.id("twotabserchtextbox"));
+        WebElement searchBox=driver.findElement(By.id("twotabsearchtextbox"));
         searchBox.sendKeys("Java");
         // 3. Bulunan sonuc sayisini yazdirin
         WebElement sonucYaziElementi=driver.findElement(By.xpath("//h1[@class='a-size-base s-desktop-toolbar a-text-normal']"));
