@@ -36,7 +36,7 @@ public class C02_IFrame extends TestBase {
 
         //Elemental selenium 'a click yapın
         /*
-        Bir frame'e geçiş yaptıktan sonra oradan çıkıncaya veya başka bir frame e geçinceye ladar driver o frame içerisinde kalır
+        Bir frame'e geçiş yaptıktan sonra oradan çıkıncaya veya başka bir frame e geçinceye kadar driver o frame içerisinde kalır
         işimiz bittiğinde veya başjka frame e geçmek istediğimizde
         önce çalışmak istediğimiz yere geçiş yapmalıyız
          */
