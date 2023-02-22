@@ -37,7 +37,7 @@ public class C02_SwitchToIFrame extends TestBase {
         //Elemental selenium 'a click yapın
         /*
         Bir frame'e geçiş yaptıktan sonra oradan çıkıncaya veya başka bir frame e geçinceye kadar driver o frame içerisinde kalır
-        işimiz bittiğinde veya başjka frame e geçmek istediğimizde
+        işimiz bittiğinde veya başka frame e geçmek istediğimizde
         önce çalışmak istediğimiz yere geçiş yapmalıyız
          */
         driver.switchTo().parentFrame();//içiçe frame lerde bir üst seviyeye çıkar
