@@ -55,6 +55,13 @@ public class C05_WebTables extends TestBase {
         //8.Satir ve sutun sayisini parametre olarak alip, hucredeki bilgiyi döndüren bir method olusturun
 
         System.out.println(getData(3,5));
+
+        //9.  7. satirin 9. datasının Shoes içerdiğini test edelim
+        String actualData=getData(7,9);
+        String expectedIcerik="Shoes";
+        Assert.assertTrue(actualData.contains(expectedIcerik));
+
+
     }
     public  String getData(int satirNo,int sutunNo){
 
