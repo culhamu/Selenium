@@ -9,7 +9,7 @@ import org.openqa.selenium.support.locators.RelativeLocator;
 import java.time.Duration;
 
 public class C05_RelativeLocators {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -28,6 +28,8 @@ public class C05_RelativeLocators {
         //2 locate edemediğimiz webElement'e ait bir özellik
 
         WebElement berlin1=driver.findElement(RelativeLocator.with(By.tagName("img")).below(nyc));
+        berlin1.click();
+        Thread.sleep(3000);
         System.out.println(berlin1.getAttribute("id"));//berlin1 id=pid7_thumb
         WebElement berlin2= driver.findElement(RelativeLocator.with(By.tagName("img")).toRightOf(boston));
         System.out.println(berlin2.getAttribute("id"));//berlin2 id=pid7_thumb
