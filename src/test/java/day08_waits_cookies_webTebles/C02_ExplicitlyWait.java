@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class C02_ExpilicitlyWait {
+public class C02_ExplicitlyWait {
 
     @Test
     public void test01() throws InterruptedException {
