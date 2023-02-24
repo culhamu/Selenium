@@ -28,16 +28,23 @@ public class C06_WebTables extends TestBase {
         System.out.println("Üçüncü sütun başlığı : "+ucuncuSutunBasligi.getText());
 
         // 4. Tablodaki tum datalari yazdirin
-        List<WebElement> tumBodyElementleri=driver.findElements(By.xpath("//div[@class='rt-table']"));
+        List<WebElement> tumBodyElementleri=driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
         siraNo=1;
         for (WebElement each:tumBodyElementleri) {
             System.out.println(siraNo+"-->"+each.getText());
             siraNo++;
         }
+        System.out.println(tumBodyElementleri.size());
 
         // 5. Tabloda kac tane bos olmayan cell (data) oldugunu yazdirin
         List<WebElement> tumDataElementi=driver.findElements(By.xpath("//div[@class='rt-tr-group']//div[@class='rt-td']"));
-
+        siraNo=1;
+        for (WebElement each:tumDataElementi) {
+            if (!each.getText().equals(" ")){
+                System.out.println(siraNo+"-->"+each.getText());
+                siraNo++;
+            }
+        }
 
         // 6. Tablodaki satir sayisini yazdirin
         List<WebElement> satirSayisi=driver.findElements(By.xpath("//div[@class='rt-tr-group']"));
@@ -48,20 +55,23 @@ public class C06_WebTables extends TestBase {
         System.out.println("Sütun sayısı : "+sutunSayisi.size());
 
         // 8. Tablodaki 3.kolonu yazdirin
+       for (int i = 1; i <10 ; i++) {
 
+            System.out.println(getData(i,3));
+        }
 
         // 9. Tabloda “First Name” i Kierra olan kisinin Salary’sini yazdirin
         WebElement kierraSalary= driver.findElement(By.xpath("((//div[@class='rt-tr -odd'])[2]//div[@class='rt-td'])[5]"));
         System.out.println("Kierra'nın maaşı : "+kierraSalary.getText());
 
         //10. Page sayfasinda bir method olusturun, Test sayfasindan satir ve sutun sayisini girdigimde bana datayi yazdirsin
-        System.out.println(getData(2,5));
+        System.out.println(getData(3,5));
 
 
     }
     public String getData(int satirNo,int sutunNo){
 
-        String dataPath="((//div[@class='rt-tr -odd'])["+satirNo+"]//div[@class='rt-td'])["+sutunNo+"]";
+        String dataPath="((//div[@class='rt-tr-group'])["+satirNo+"]//div[@class='rt-td'])["+sutunNo+"]";
         String istenenData=driver.findElement(By.xpath(dataPath)).getText();
 
         return istenenData;

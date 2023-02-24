@@ -7,28 +7,29 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class C01_ExplicitlyWait  {
+public class C01_ExplicitlyWait {
+
     @Test
     public void test01(){
+
         /*
-        Implcitly wait test yaparken işlemlerimizin çogunu halleder
-        Nadirende olsa bazi işlemler için implicitlywait için tanımlanan
-        süreden fazla zamana ihtiyaç olabilir
+            Implicitly Wait test yaparken ihtiyacimiz olan beklemelerin cogunu halleder
+            Nadiren de olsa bazi islemler icin implicitlyWait icin tanimlanan
+            sureden daha fazla zamana ihtiyac olabilir
 
-        Explicitlywait bir webElement üzerinde gerçekleşecek tek bir görev için tanımlanır
+            ExplicitlyWait bir webelement uzerinde gerceklesecek
+            TEK BIR gorev icin tanimlanir
 
-        Bunu için hem WebElement tanımlanmalı hem de görev
-
+            Bunun icin hem webelement tanimlanmali, hem de gorev
          */
+
         WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-       // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        WebDriver driver= new ChromeDriver();
         driver.manage().window().maximize();
 
         //3. https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
@@ -36,23 +37,28 @@ public class C01_ExplicitlyWait  {
         //4. Remove butonuna basin.
         driver.findElement(By.xpath("//*[text()='Remove']")).click();
         //5. “It’s gone!” mesajinin goruntulendigini dogrulayin.
-        //  explicitlywait kullanacaksak
-        //a- bir wait objesi olusturacaz
+        //   explicitly wait kullanacaksak
+        //   A - bir wait objesi olustur
 
-        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(40));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(40));
 
-        //b- EGER kullanacağımız WebElement locate edilebilirse locate yapalım
+        //  B - EGER kullanacagimiz webelement locate edilebilir ise locate yapalim
 
-      //  WebElement itsGoneElementi= driver.findElement(By.xpath("//*[text()=\"It's gone!\"]"));
+        // WebElement itsGoneElementi=
+        //driver.findElement(By.xpath("//*[text()=\"It's gone!\"]"));
 
-        //c- EGER locate etmemiz için zamana ihtiyaç varsa
-        //o zaman locate ve görev tanımlama tek satırda olur
+        //  C- EGER locate etmemiz icin zamana ihtiyac varsa,
+        //     Locate ve gorev tanimlamayi tek satirda yapiyoruz
 
-        WebElement itsGoneElementi=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()=\"It's gone!\"]")));
-                Assert.assertTrue(itsGoneElementi.isDisplayed());
+        WebElement itsGoneElementi=
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@id='message']")));
+
+        Assert.assertTrue(itsGoneElementi.isDisplayed());
+
         driver.close();
 
 
-    }
 
+
+    }
 }
