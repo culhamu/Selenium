@@ -1,5 +1,6 @@
 package day08_waits_cookies_webTebles;
 
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -9,6 +10,8 @@ import org.openqa.selenium.interactions.Actions;
 import utilities.TestBase;
 
 import java.util.List;
+
+import static dev.failsafe.internal.util.Assert.*;
 
 public class C05_WebTables extends TestBase {
 
