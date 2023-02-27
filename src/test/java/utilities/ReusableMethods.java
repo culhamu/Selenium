@@ -11,20 +11,19 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ReusableMethods {
+
     public static void tumSayfaScreenshot(WebDriver driver) throws IOException {
 
-        TakesScreenshot ts= (TakesScreenshot) driver;
+        TakesScreenshot ts = (TakesScreenshot) driver;
 
-        LocalDateTime ldt=LocalDateTime.now();
-        DateTimeFormatter dtf=DateTimeFormatter.ofPattern("yyyyMMddhhmmss");
-        String dinamikDosyayolu="target/tumSayfaSS"+ldt.format(dtf)+".png";
+        LocalDateTime ldt = LocalDateTime.now();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddhhmmss");
+        String dinamikDosyaYolu = "target/tumSayfaSs"+ ldt.format(dtf)+".png";
+        // dosya yolu "target/tumSayfaSs20230227114813"
+        File tumSayfaSs = new File(dinamikDosyaYolu);
 
-        //dosya yolu "target/tumSayfaSS20230227114813"
+        File geciciFile= ts.getScreenshotAs(OutputType.FILE);
 
-        File tumSayfaSS=new File(dinamikDosyayolu);
-
-        File geciciFile=ts.getScreenshotAs(OutputType.FILE);
-
-        FileUtils.copyFile(geciciFile,tumSayfaSS);
+        FileUtils.copyFile(geciciFile,tumSayfaSs);
     }
 }
