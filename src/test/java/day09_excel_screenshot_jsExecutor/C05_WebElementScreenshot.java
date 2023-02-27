@@ -13,26 +13,39 @@ import java.io.File;
 import java.io.IOException;
 
 public class C05_WebElementScreenshot extends TestBase {
+
     @Test
     public void test01() throws IOException {
-
+        // amazon anasayfaya gidin
         driver.get("https://www.amazon.com");
 
-        WebElement searchBox= driver.findElement(By.id("twotabsearchtextbox"));
+        // Nutella icin arama yapin
+        WebElement aramaKutusu= driver.findElement(By.id("twotabsearchtextbox"));
+        aramaKutusu.sendKeys("Nutella" + Keys.ENTER);
 
-        searchBox.sendKeys("Nutella"+ Keys.ENTER);
+        // Sonuclarin Nutella icerdigini test edin
 
-        WebElement actualResultText= driver.findElement(By.xpath("//h1[@class='a-size-base s-desktop-toolbar a-text-normal']"));
-        String expectedText="Nutella";
-        Assert.assertTrue(actualResultText.getText().contains(expectedText));
+        WebElement sonucYaziElementi= driver.findElement(By.xpath("//h1[@class='a-size-base s-desktop-toolbar a-text-normal']"));
+        String actualSonucYazisi =sonucYaziElementi.getText();
 
-        //Sonuç yazısının  fotoğrafını çekelim
-        //Fotoğraf çekilecek elementi locate edlim
+        String expectedIcerik = "Nutella";
 
-        File elementScreenshot=new File("target/elementScreenshot.png");
+        Assert.assertTrue(actualSonucYazisi.contains(expectedIcerik));
 
-        File geciciDosya=actualResultText.getScreenshotAs(OutputType.FILE);
+        // ve rapora eklenmek icin sonuc yazisi elementinin fotografini cekin
 
-        FileUtils.copyFile(geciciDosya,elementScreenshot);
+        // 1- fotograf cekilecek elementi locate edin
+        // 2- Dosyayi kaydetmek icin bir File olusturun
+
+        File elementSs = new File("target/elementScreenshot.jpg");
+
+        // 3- webelement ile screenshot cekip gecici dosyaya kaydedin
+
+        File geciciDosya= sonucYaziElementi.getScreenshotAs(OutputType.FILE);
+
+        // 4- gecici dosyayi elementSs'e kopyalayalim
+
+        FileUtils.copyFile(geciciDosya,elementSs);
+
     }
 }
